@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "app/(tabs)/profile.jsx",
+    "app/_layoutapp/(mainTabs)/_layout.jsxex.jsx"
+  ],
+  "extends": "expo/tsconfig.base"
+}

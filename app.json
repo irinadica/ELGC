@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "ELGC",
+    "slug": "ELGC",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/elgcLogo.png",
+    "scheme": "ELGC",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splashScreen.png",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "usesAppleSignIn": true,
+      "bundleIdentifier": "com.irina.dica.ELGC",
+      "package": "com.irina.dica.ELGC"
+    },
+    "android": {
+      "package": "com.irina.dica.ELGC"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-apple-authentication"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f871dce2-d73d-46e6-b228-a66dc1844bd6"
+      }
+    }
+  }
+}
