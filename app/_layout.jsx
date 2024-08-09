@@ -33,5 +33,4 @@ const RootLayout = () => {
     </GlobalProvider>
   )
 }
-
 export default RootLayout
