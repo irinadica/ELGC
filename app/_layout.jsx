@@ -31,6 +31,8 @@ const RootLayout = () => {
           <Stack.Screen name="(content)" options={{headerShown: false}}/>
         </Stack>
     </GlobalProvider>
+   
   )
 }
+
 export default RootLayout

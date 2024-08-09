@@ -6,6 +6,7 @@ import { AntDesign } from '@expo/vector-icons'
 import CustomButton from '../../components/customButton';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StripeProvider } from '@stripe/stripe-react-native';
+import PaymentScreen from '../../components/paymentScreen';
 
 const Basket = () => {
   const [cartItems, setCartItems]=useState([]);
@@ -139,7 +140,7 @@ const Basket = () => {
         <Text className="font-pbold text-3xl m-4">Total:</Text>
         <Text className="font-pbold text-3xl m-4">£{totalPrice}</Text>
       </View>
-      
+      <PaymentScreen/>
       </GestureHandlerRootView>
     </SafeAreaView>
     </StripeProvider>

@@ -1,7 +1,8 @@
-import { View, Text, Alert } from 'react-native'
+import { View, Text, Alert, TextInput } from 'react-native'
 import React, { useState } from 'react'
-import { CardField, useStripe } from '@stripe/stripe-react-native'
+import { CardField, createPaymentMethod, useStripe } from '@stripe/stripe-react-native'
 import CustomButton from './customButton';
+import { createPaymentIntent } from '../lib/appwrite';
 
 const PaymentScreen = () => {
     const {confirmPayment}=useStripe();
@@ -16,9 +17,9 @@ const PaymentScreen = () => {
         }
 
         try {
-            const {clientSecret}=await craetePaymentIntent({email, amount: 1000});
+            const {clientSecret}=await createPaymentIntent({email, amount: 1000});
             const {error} = await confirmPayment(clientSecret,{
-                type: 'Card',
+               type: 'Card',
                 billingDetails: {email},
             });
 
