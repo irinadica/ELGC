@@ -21,6 +21,8 @@ import KidsEnrol from '../(content)/kidsEnrol';
 import Contact from '../(content)/contact';
 import KidsEnrol_Info from '../(content)/kidsEnrol_kidInfo';
 import Classes from '../(content)/classes';
+import PaymentScreen from '../(content)/paymentScreen';
+import OrderConfirmation from '../(content)/orderConfirmation';
 
 
 
@@ -132,6 +134,9 @@ function StackNavigator(){
       <StackNav.Screen name='kidsEnrol_kidInfo' component={KidsEnrol_Info} options={{headerTitle: 'Enrolment'}}/>
       <StackNav.Screen name='contact' component={Contact} options={{headerTitle: 'Contact Us'}}/>
       <StackNav.Screen name='classes' component={Classes} options={{headerTitle: 'Classes'}}/>
+      <StackNav.Screen name='paymentScreen' component={PaymentScreen} options={{headerTitle: 'Payment'}}/>
+      <StackNav.Screen name='orderConfirmation' component={OrderConfirmation} options={{headerTitle: 'Payment'}}/>
+
     </StackNav.Navigator>
   )
 }

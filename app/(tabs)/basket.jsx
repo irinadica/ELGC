@@ -1,17 +1,19 @@
 import { View, Text, SafeAreaView, ScrollView, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { deleteCartItems, deleteCartItemsBooking, getCartBookings, getCartClasses, getCartItems, getCurrentUser } from '../../lib/appwrite';
+import { deleteCartItems, deleteCartItemsBooking, getCartBookings, getCartClasses, getCartItems, getCurrentUser, updateBooking, updateClass } from '../../lib/appwrite';
 import { Card } from 'react-native-paper';
 import { AntDesign } from '@expo/vector-icons'
 import CustomButton from '../../components/customButton';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StripeProvider } from '@stripe/stripe-react-native';
-import PaymentScreen from '../../components/paymentScreen';
+import PaymentScreen from '../(content)/paymentScreen';
+import { useNavigation } from '@react-navigation/native';
 
 const Basket = () => {
   const [cartItems, setCartItems]=useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [totalPrice, setTotalPrice] = useState(0)
+  const navigation=useNavigation();
 
   useEffect(()=>{
     const fetchCartItems= async ()=>{
@@ -92,10 +94,21 @@ const Basket = () => {
     }
   }
 
-  
+  const handleCheckout = async()=>{
+    const classIDs = cartItems.map(item => item.classID).filter(id => id);
+    const bookingIDs = cartItems.map(item => item.bookingID).filter(id => id);
+    try {
+      await updateBooking(bookingIDs);
+      await updateClass(classIDs);
+      
+      navigation.navigate('paymentScreen', { totalPrice, classIDs, bookingIDs });
+  } catch (error) {
+      console.error("Error during checkout:", error);
+      Alert.alert('Error', 'An error occurred while processing your checkout.');
+  }
+  }
   
   return (
-    <StripeProvider publishableKey="pk_test_51PaGnAJwJrVYTU4BYNnp4hT56aKV1WvQjiePIvY3qQS5a0TACtePxymDPOjnTg9GjfIAbMs36nVQyiL0RM2dLXo100xmkSrKZi">
     <SafeAreaView className="h-full bg-blue-50">
       <GestureHandlerRootView>
        <Text className="font-pbold text-4xl m-auto p-2 mt-4">Your cart</Text>
@@ -140,10 +153,9 @@ const Basket = () => {
         <Text className="font-pbold text-3xl m-4">Total:</Text>
         <Text className="font-pbold text-3xl m-4">£{totalPrice}</Text>
       </View>
-      <PaymentScreen/>
+      <CustomButton title="Go to Checkout" handlePress={handleCheckout}/>
       </GestureHandlerRootView>
     </SafeAreaView>
-    </StripeProvider>
   )
 }
 

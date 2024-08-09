@@ -45,10 +45,10 @@ export default function HomeScreen() {
           handlePress={()=>navigation.navigate('parties')}
           containerStyles= "w-full mt-5"
           />
-
+          
           <CustomButton
-          title="HOLIDAY CAMP"
-          handlePress={()=>navigation.navigate('holidayCamp')}
+          title="CONTACT US"
+          handlePress={()=>navigation.navigate('contact')}
           containerStyles= "w-full mt-5 "
           />
 

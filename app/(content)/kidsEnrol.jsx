@@ -14,7 +14,7 @@ const KidsEnrol = () => {
   const [form, setForm]=useState({
     firstName:"",
     lastName:"",
-    age,
+    age:Number,
     address:"",
     phone:"",
   });
@@ -61,7 +61,7 @@ const KidsEnrol = () => {
     try {
           const updateUser = await updateCurrentUser(form.firstName,form.lastName,form.age,form.phone,form.address);
 
-          router.push('/kidsEnrol_kidInfo')
+          navigation.navigate('kidsEnrol_kidInfo');
       }
     catch (error) {
       Alert.alert("Error", error.message)

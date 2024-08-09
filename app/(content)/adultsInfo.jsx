@@ -34,12 +34,6 @@ const AdultsInfo = () => {
               <Text className="font-psemibold text-xl mt-4">Others</Text>
 
               <CustomButton
-              title="Membership"
-              handlePress={()=>navigation.navigate('membership')}
-              containerStyles= "w-full mt-3"
-              />
-
-              <CustomButton
               title="Book Now"
               handlePress={()=>navigation.navigate('bookings')}
               containerStyles= "w-full mt-2"
