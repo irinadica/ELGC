@@ -1,4 +1,4 @@
-#Instructions for the application use.
+Instructions for the application use.
 
 You need VSCode, XCode or an iPhone, Android Studio emulator API 33 or an Android phone.
 
